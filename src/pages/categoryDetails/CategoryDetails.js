@@ -1,15 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
+import './CategoryDetails.css'
 
 const CategoryDetails = () => {
     const categoryNews = useLoaderData();
-    const {id,title, image_url, details} = categoryNews;
+    const { id, title, image_url, details } = categoryNews;
     console.log(categoryNews);
     return (
-        <div>
-            <h1>this is Category Details page : {categoryNews.length}</h1>
-            <h2>title : {title}</h2>
-            <img style={{ height: '200px', backgroundColor : 'red', padding:'10px', display:'block'}} src={image_url} alt="" />
+        <div className='categoryDetails'>
+            <img style={{ height: '200px', display: 'block', borderRadius : '5px' }} src={image_url} alt="" />
+            <h2>Course Name : {title}</h2>
             <span>{details}</span>
         </div>
     );

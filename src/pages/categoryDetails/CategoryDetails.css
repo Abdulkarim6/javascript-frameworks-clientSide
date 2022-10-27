@@ -1,0 +1,10 @@
+.categoryDetails{
+    margin-top: 10px;
+    border: 2px solid rgb(30, 231, 114);
+    background-color: rgb(228, 227, 227);
+    padding: 15px;
+}
+.categoryDetails img{
+    width: 60%;
+    margin: 0 auto;
+}
