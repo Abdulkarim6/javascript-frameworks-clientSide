@@ -4,17 +4,14 @@ import './CategoryDetails.css';
 import { FaFileDownload } from 'react-icons/fa';
 import Pdf from "react-to-pdf";
 import  Button  from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const ref = React.createRef();
 
 const CategoryDetails = () => {
-    const categoryNews = useLoaderData();
-    const { id, title, image_url, details } = categoryNews;
-    console.log(categoryNews);
-
-   const handlePremiumAccess = () => {
-    console.log('clicked');
-   }
+    const categoryCourse = useLoaderData();
+    const { id, title, image_url, details } = categoryCourse;
+    
 
     return (
         <div className='categoryDetails'>
@@ -30,7 +27,7 @@ const CategoryDetails = () => {
                     <span>{details}</span>
                 </div>
             </div>
-            <Button onClick={handlePremiumAccess} className='mt-3'>Get Premium access</Button>
+        <Link to={`/details/${id}`}><Button className='mt-3'>Get Premium access</Button></Link> 
         </div>
     );
 };

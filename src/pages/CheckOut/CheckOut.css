@@ -1,0 +1,18 @@
+.checkCart{
+    text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(247, 247, 247);
+}
+
+
+.checkoutPaid{
+    border: 2px solid rgb(206, 194, 194);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 10px;
+    
+}
