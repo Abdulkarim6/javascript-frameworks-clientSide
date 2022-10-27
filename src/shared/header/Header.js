@@ -2,6 +2,7 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -17,7 +18,7 @@ const Header = () => {
                         <Nav.Link >dark mode</Nav.Link>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Link to='/register'>Register</Link>
                         <Nav.Link eventKey={2} href="#memes">
                             Dank memes
                         </Nav.Link>
