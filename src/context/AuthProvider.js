@@ -1,10 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
-
 export const AuthContext = createContext();
-
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
@@ -19,7 +17,29 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const authInfo = { user, createUser, signIn }
+    const logOut = () => {
+        // setLoading(true);
+        return signOut(auth);
+    }
+
+    const googleLogin = (provider) =>{
+        return signInWithPopup(auth, provider)
+    }
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log('inside state chainged', currentUser);
+            // if (currentUser == null || currentUser.emailVerified) {
+                setUser(currentUser)
+            // }
+            // setLoading(false)
+        })
+        return () => {
+            unsubscribe();
+        }
+    }, [])
+
+    const authInfo = { user, createUser, signIn,logOut ,googleLogin}
 
     return (
         <div>

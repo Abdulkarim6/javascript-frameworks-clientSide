@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../context/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { Link } from 'react-router-dom';
+import './Login.css'
+
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
 
     const handleLogInSubmit = (event) => {
         event.preventDefault();
@@ -23,22 +27,38 @@ const Login = () => {
             })
     }
 
+    const handleGoogleSignIn = () => {
+        const googleProvider = new GoogleAuthProvider()
+
+        googleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
-        <Form onSubmit={handleLogInSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name='email' type="email" placeholder="Enter email" />
-            </Form.Group>
+        <div>
+            <Form onSubmit={handleLogInSubmit} className='loginForm'>
+                <h3 className='text-center'>Please Login with Email and Password</h3>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control name='email' type="email" placeholder="Enter email" />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name='password' type="password" placeholder="Password" />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control name='password' type="password" placeholder="Password" />
+                </Form.Group>
 
-            <Button variant="primary" type="submit">
-                Log In
-            </Button>
-        </Form>
+                <Button variant="primary" type="submit">
+                   Submit
+                </Button>
+            </Form>
+            <Button onClick={handleGoogleSignIn} className='mt-2 mb-2 d-block' variant="primary">Login with Google</Button>
+            <Button variant="light">If new in this site? Please <Link to='/register'>Register</Link></Button>
+        </div>
     );
 };
 

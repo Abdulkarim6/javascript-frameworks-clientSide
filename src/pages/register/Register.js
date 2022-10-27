@@ -20,7 +20,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 // setError('');
-                // form.reset();
+                form.reset();
                 // updateUserProfile(name, PhotoURl);
                 // handleEmailVerification();
                 // toast.success('please verify your email')
@@ -58,7 +58,7 @@ const Register = () => {
                     label={<>Accept <Link to='/terms'>Terms and condition</Link></>} />
             </Form.Group> */}
             <Button variant="primary" type="submit">
-                Register
+                Submit
             </Button>
             <Form.Text className="text-danger">
                 {error}
