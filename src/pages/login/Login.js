@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../context/AuthProvider';
@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -25,11 +26,13 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
+                setError('')
                 form.reset();
                 navigate(from, { replace: true });
                 console.log((user));
             })
             .catch(e => {
+                setError(e.message)
                 console.error(e)
             })
     }
@@ -63,6 +66,7 @@ const Login = () => {
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
+                <span className='text-danger'>{error}</span>
             </Form>
             <Button onClick={handleGoogleSignIn} className='mt-2 mb-2 d-block' variant="primary">Login with Google</Button>
             <Button variant="light">If new in this site? Please <Link to='/register'>Register</Link></Button>
