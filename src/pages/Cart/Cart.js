@@ -6,7 +6,7 @@ import './Cart.css';
 
 const Cart = ({cart}) => {
     // console.log(cart);
-    const { title, details, image_url, id } = cart;
+    const { title, image_url, id } = cart;
     return (
         <Card className='cart'>
             <Card.Img className='img' variant="top" src={image_url} />

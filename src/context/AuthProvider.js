@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext();
@@ -8,7 +8,6 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    // const user = { displayName: 'jwel', age: '22' };
 
     const createUser = (email, password) => {
         setLoading(true)
@@ -18,6 +17,10 @@ const AuthProvider = ({ children }) => {
     const signIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
+    }
+
+    const handleUpdateProfile = (profile) => {
+        return updateProfile(auth.currentUser, profile)
     }
 
     const logOut = () => {
@@ -33,9 +36,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('inside state chainged', currentUser);
-            // if (currentUser == null || currentUser.emailVerified) {
             setUser(currentUser)
-            // }
             setLoading(false);
         })
         return () => {
@@ -43,7 +44,7 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = { user, createUser, signIn, logOut, googleLogin , loading}
+    const authInfo = { user, createUser, signIn, logOut, googleLogin, loading ,handleUpdateProfile}
 
     return (
         <div>

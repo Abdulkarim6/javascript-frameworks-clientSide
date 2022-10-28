@@ -2,10 +2,16 @@ import React, { useContext, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../context/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const Register = () => {
-    const { createUser, handleUpdateProfile, emailVerification } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
+ 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleRegisterSubmit = (event) => {
         event.preventDefault()
@@ -19,17 +25,23 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                // setError('');
+                setError('');
                 form.reset();
-                // updateUserProfile(name, PhotoURl);
-                // handleEmailVerification();
-                // toast.success('please verify your email')
+                updateUserProfile(name, PhotoURl);
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(e => {
                 console.error(e)
-                // setError(e.message)
-            })
+                setError(e.message)
+            });
+
+        const updateUserProfile = (name, PhotoURl) => {
+            const profile = { displayName: name, photoURL: PhotoURl }
+            handleUpdateProfile(profile)
+                .then(() => { })
+                .catch(error => console.error(error))
+        }
     }
 
     return (
@@ -51,12 +63,6 @@ const Register = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control name='password' type="password" placeholder="Password" />
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check
-                    onClick={handleCheckbox}
-                    type="checkbox"
-                    label={<>Accept <Link to='/terms'>Terms and condition</Link></>} />
-            </Form.Group> */}
             <Button variant="primary" type="submit">
                 Submit
             </Button>

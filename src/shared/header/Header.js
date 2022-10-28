@@ -65,8 +65,6 @@ const Header = () => {
                                 <FaUser></FaUser>
                             </>
                         }
-
-                        {/* <Link to='/register'>Register</Link> */}
                     </Nav>
                 </Navbar.Collapse>
             </Container>

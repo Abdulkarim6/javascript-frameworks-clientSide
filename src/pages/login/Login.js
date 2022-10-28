@@ -10,9 +10,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
-
     const from = location.state?.from?.pathname || '/';
 
     const handleLogInSubmit = (event) => {
@@ -40,6 +40,7 @@ const Login = () => {
         googleLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate(from, { replace: true });
                 console.log(user);
             })
             .catch(error => console.error(error))
