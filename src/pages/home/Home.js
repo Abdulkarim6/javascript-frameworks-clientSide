@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import './Home.css'
 

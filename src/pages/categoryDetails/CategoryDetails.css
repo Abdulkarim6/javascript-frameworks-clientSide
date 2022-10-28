@@ -5,6 +5,10 @@
     padding: 15px;
 }
 .categoryDetails img{
-    width: 60%;
+    width: 90%;
+    height: 250px;
     margin: 0 auto;
+    display: block;
+    border-radius: 5px;
+    
 }

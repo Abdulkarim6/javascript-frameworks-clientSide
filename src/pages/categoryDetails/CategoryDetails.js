@@ -21,7 +21,7 @@ const CategoryDetails = () => {
                 </Pdf>
             </div>
             <div>
-                <img style={{ height: '200px', display: 'block', borderRadius: '5px' }} src={image_url} alt="" />
+                <img src={image_url} alt="" />
                 <div ref={ref}>
                     <h2>Course Name : {title}</h2>
                     <span>{details}</span>

@@ -3,12 +3,17 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { AuthContext } from '../../context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
-import { Link } from 'react-router-dom';
-import './Login.css'
+import { Link, useLocation } from 'react-router-dom';
+import './Login.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogInSubmit = (event) => {
         event.preventDefault();
@@ -21,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 form.reset();
+                navigate(from, { replace: true });
                 console.log((user));
             })
             .catch(e => {
@@ -54,7 +60,7 @@ const Login = () => {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                   Submit
+                    Submit
                 </Button>
             </Form>
             <Button onClick={handleGoogleSignIn} className='mt-2 mb-2 d-block' variant="primary">Login with Google</Button>
