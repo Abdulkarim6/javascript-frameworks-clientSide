@@ -16,7 +16,7 @@ const CategoryDetails = () => {
     return (
         <div className='categoryDetails'>
             <div className='d-flex justify-content-end m-2'>
-                <Pdf targetRef={ref} filename="code-example.pdf">
+                <Pdf targetRef={ref} filename={`${title}.pdf`}>
                     {({ toPdf }) => <button onClick={toPdf}>Download PDF<FaFileDownload className='ms-2'></FaFileDownload></button>}
                 </Pdf>
             </div>

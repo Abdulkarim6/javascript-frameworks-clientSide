@@ -1,4 +1,30 @@
-# Getting Started with Create React App
+Live link : 
+
+code link : (https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-Abdulkarim6)
+
+### `Features`
+.Firebase authentication
+.clickable course card
+.responsive for mobile and desktop
+.private route
+.checkout component
+.pdf for download course
+### `Technologis`
+client : React, firebase, react Icons, React Bootstrap
+
+server : Node ,cors, Vercel
+
+
+
+
+
+
+
+
+
+
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +93,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
