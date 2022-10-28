@@ -15,11 +15,11 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/', element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/details')
+                loader: () => fetch('https://javascript-server.vercel.app/details')
             },
             {
                 path: '/category/:id', element: <CategoryDetails></CategoryDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://javascript-server.vercel.app/category/${params.id}`)
             },
             { path: '/blog', element: <Blog></Blog> },
             { path: '/faq', element: <Faq></Faq> },
@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
             { path: '/register', element: <Register></Register> },
             {
                 path: '/details/:id', element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://javascript-server.vercel.app/details/${params.id}`)
             }
         ]
     },
