@@ -1,5 +1,15 @@
-.loginForm{
+.Form{
+    width: 80%;
+    margin: 15px auto;
     border: 2px solid lightgray;
     padding: 10px;
     border-radius: 5px;
+}
+.or{
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }

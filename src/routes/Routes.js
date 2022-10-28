@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Blog from "../pages/Blog/Blog";
 import CategoryDetails from "../pages/categoryDetails/CategoryDetails";
 import CheckOut from "../pages/CheckOut/CheckOut";
+import Faq from "../pages/Faq/Faq";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
@@ -21,6 +22,7 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             { path: '/blog', element: <Blog></Blog> },
+            { path: '/faq', element: <Faq></Faq> },
             { path: '/login', element: <Login></Login> },
             { path: '/register', element: <Register></Register> },
             {

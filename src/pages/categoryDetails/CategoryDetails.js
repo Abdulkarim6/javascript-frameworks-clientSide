@@ -12,7 +12,6 @@ const CategoryDetails = () => {
     const categoryCourse = useLoaderData();
     const { id, title, image_url, details } = categoryCourse;
     
-
     return (
         <div className='categoryDetails'>
             <div className='d-flex justify-content-end m-2'>

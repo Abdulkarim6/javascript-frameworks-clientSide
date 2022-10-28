@@ -5,7 +5,6 @@ import Header from '../shared/header/Header';
 import SideNav from '../shared/sideNav/SideNav';
 import { Outlet } from 'react-router-dom'
 
-
 const Main = () => {
 
     return (

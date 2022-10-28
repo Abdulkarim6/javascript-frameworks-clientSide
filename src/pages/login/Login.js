@@ -7,7 +7,6 @@ import { Link, useLocation } from 'react-router-dom';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 
-
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
     const [error, setError] = useState('');
@@ -50,9 +49,9 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <Form onSubmit={handleLogInSubmit} className='loginForm'>
-                <h3 className='text-center'>Please Login with Email and Password</h3>
+        <div className='Form'>
+            <Form onSubmit={handleLogInSubmit}>
+                <h3 className='text-center'>Please Login !!!</h3>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control name='email' type="email" placeholder="Enter email" />
@@ -68,8 +67,11 @@ const Login = () => {
                 </Button>
                 <span className='text-danger'>{error}</span>
             </Form>
-            <Button onClick={handleGoogleSignIn} className='mt-2 mb-2 d-block' variant="primary">Login with Google</Button>
-            <Button variant="light">If new in this site? Please <Link to='/register'>Register</Link></Button>
+            <div className='or'>
+                <span>Or</span>
+                <Button onClick={handleGoogleSignIn} className='mt-2 mb-2 d-block' variant="primary">Login with Google</Button>
+                <Button variant="light">If new in this site? Please <Link to='/register'>Register</Link></Button>
+            </div>
         </div>
     );
 };

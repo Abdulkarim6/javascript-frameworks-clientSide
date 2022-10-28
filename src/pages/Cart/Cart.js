@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = ({cart}) => {
-    // console.log(cart);
+    
     const { title, image_url, id } = cart;
     return (
         <Card className='cart'>

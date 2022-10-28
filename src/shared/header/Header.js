@@ -5,17 +5,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import { FaUser } from 'react-icons/fa';
+import { FaUser ,FaMoon} from 'react-icons/fa';
 import './Header.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-
 import titleLogo from '../../images/titelLogo.jpg'
 import { AuthContext } from '../../context/AuthProvider';
 
+
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
@@ -31,7 +30,6 @@ const Header = () => {
             })
     }
 
-
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -40,24 +38,24 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-
-                        <Link className='me-2 mb-2' to='/'><Button variant="primary">Courses</Button></Link>
-                        <Link className='me-2 mb-2' to='/faq'><Button variant="primary">FAQ</Button></Link>
-                        <Link className='me-2 mb-2' to='/blog'><Button variant="primary">Blog</Button></Link>
-                        <Link ><Button variant="primary">dark mode</Button></Link>
+                        <Link className='me-2 mb-1' to='/'><Button variant="primary">Courses</Button></Link>
+                        <Link className='me-2 mb-1' to='/faq'><Button variant="primary">FAQ</Button></Link>
+                        <Link className='me-2 mb-1' to='/blog'><Button variant="primary">Blog</Button></Link>
+                        <button className='Dark'><FaMoon></FaMoon>Dark Mood</button>
+                          
                     </Nav>
                     <Nav className='align-items-center'>
 
                         {user?.uid ?
                             <>
-                            <Button className='me-2' onClick={handleSignOut} variant="primary">Log Out</Button>
-                            <OverlayTrigger
-                                placement="bottom"
-                                delay={{ show: 250, hide: 400 }}
-                                overlay={renderTooltip}
-                            >
-                                <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
-                            </OverlayTrigger>
+                                <Button className='me-2' onClick={handleSignOut} variant="primary">Log Out</Button>
+                                <OverlayTrigger
+                                    placement="bottom"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderTooltip}
+                                >
+                                    <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
+                                </OverlayTrigger>
                             </>
                             :
                             <>
