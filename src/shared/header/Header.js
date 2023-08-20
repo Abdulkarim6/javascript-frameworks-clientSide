@@ -36,7 +36,7 @@ const Header = () => {
                 <img style={{ height: '60px', width: '60px', borderRadius: '50%', marginRight: '10px' }} src={titleLogo} alt="" />
                 <span className='Navbar-Brand'>javascript Frameworks</span>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav"  className='navLinks'>
+                <Navbar.Collapse id="responsive-navbar-nav" className='navLinks'>
                     <Nav>
                         <Link className='me-2 mb-1' to='/'><Button variant="primary" size="lg">Courses</Button></Link>
                         <Link className='me-2 mb-1' to='/faq'><Button variant="primary" size="lg">FAQ</Button></Link>
@@ -49,14 +49,19 @@ const Header = () => {
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={renderTooltip}
                                 >
-                                    <Image style={{ height: '50px' , width:"50px"}} roundedCircle src={user.photoURL}></Image>
+                                    {
+                                        user?.photoURL ?
+                                            <Image style={{ height: '50px', width: "50px" }} roundedCircle src={user.photoURL}></Image>
+                                            :
+                                            <FaUser className='userIcon'></FaUser>
+                                    }
                                 </OverlayTrigger>
                             </span>
                             :
-                            <>
+                            <span className='userImg'>
                                 <Link to='/login'><Button className='me-2 mb-1' variant="primary" size="lg">Login</Button></Link>
-                                <FaUser></FaUser>
-                            </>
+                                <FaUser className='userIcon'></FaUser>
+                            </span>
                         }
                     </Nav>
                 </Navbar.Collapse>

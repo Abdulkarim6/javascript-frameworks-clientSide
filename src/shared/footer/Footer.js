@@ -4,8 +4,7 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className='footer'>
-            <span>Abdul Karim</span>
-            <span>copyright, 2022,Learn Education</span>   
+            Copyright © 2022 - All right reserved by <strong className='text-green-500'>Abdul Karim</strong>
         </div>
     );
 };

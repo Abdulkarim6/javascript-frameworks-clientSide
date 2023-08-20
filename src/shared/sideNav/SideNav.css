@@ -1,6 +1,9 @@
 .sideNav{
+    font: 1em sans-serif;
+    font-weight: 500;
     margin-top: 10px;
-    background-color: rgb(247, 247, 247);
+    background-color: lightgray;
+    font-size: x-large;
     text-align: center;
     text-decoration: none;
     padding: 10px;

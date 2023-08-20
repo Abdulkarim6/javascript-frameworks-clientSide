@@ -8,7 +8,7 @@ const Home = () => {
     
     return (
         <div>
-            <h2 className='text-center'>Welcome to our Courses</h2>
+            <h2 className='titel'>Welcome to our Courses</h2>
             <div className='categories'>
             {
                 categories.map(cart => <Cart key={cart.id} cart={cart}></Cart>)

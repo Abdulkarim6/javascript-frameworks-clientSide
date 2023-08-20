@@ -15,6 +15,6 @@
 display: flex;
 align-items: center;
 }
-.Dark{
-    width: 115px;
+.userIcon{
+    font-size: 30px;
 }
