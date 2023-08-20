@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import { FaUser ,FaMoon} from 'react-icons/fa';
+import { FaUser, FaMoon } from 'react-icons/fa';
 import './Header.css';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
@@ -31,35 +31,30 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar collapseOnSelect expand="lg" className='nav'>
             <Container>
-                <img style={{ height: '40px', width: '40px', borderRadius: '50%', marginRight: '10px' }} src={titleLogo} alt="" />
-                <Navbar.Brand href="#home">javascript Frameworks</Navbar.Brand>
+                <img style={{ height: '60px', width: '60px', borderRadius: '50%', marginRight: '10px' }} src={titleLogo} alt="" />
+                <span className='Navbar-Brand'>javascript Frameworks</span>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
-                        <Link className='me-2 mb-1' to='/'><Button variant="primary">Courses</Button></Link>
-                        <Link className='me-2 mb-1' to='/faq'><Button variant="primary">FAQ</Button></Link>
-                        <Link className='me-2 mb-1' to='/blog'><Button variant="primary">Blog</Button></Link>
-                        <button className='Dark'><FaMoon></FaMoon>Dark Mood</button>
-                          
-                    </Nav>
-                    <Nav className='align-items-center'>
-
+                <Navbar.Collapse id="responsive-navbar-nav"  className='navLinks'>
+                    <Nav>
+                        <Link className='me-2 mb-1' to='/'><Button variant="primary" size="lg">Courses</Button></Link>
+                        <Link className='me-2 mb-1' to='/faq'><Button variant="primary" size="lg">FAQ</Button></Link>
+                        <Link className='me-2 mb-1' to='/blog'><Button variant="primary" size="lg">Blog</Button></Link>
                         {user?.uid ?
-                            <>
-                                <Button className='me-2' onClick={handleSignOut} variant="primary">Log Out</Button>
+                            <span className='userImg'>
+                                <Link><Button className='me-2 mb-1' onClick={handleSignOut} variant="primary" size="lg">Log Out</Button></Link>
                                 <OverlayTrigger
                                     placement="bottom"
                                     delay={{ show: 250, hide: 400 }}
                                     overlay={renderTooltip}
                                 >
-                                    <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image>
+                                    <Image style={{ height: '50px' , width:"50px"}} roundedCircle src={user.photoURL}></Image>
                                 </OverlayTrigger>
-                            </>
+                            </span>
                             :
                             <>
-                                <Link to='/login'><Button className='me-2' variant="primary">Login</Button></Link>
+                                <Link to='/login'><Button className='me-2 mb-1' variant="primary" size="lg">Login</Button></Link>
                                 <FaUser></FaUser>
                             </>
                         }

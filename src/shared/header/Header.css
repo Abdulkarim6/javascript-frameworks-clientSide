@@ -1,3 +1,20 @@
+.nav{
+    background-color:rgb(8, 219, 234);
+    padding: 18px;
+}
+.Navbar-Brand{
+    font-size: x-large;
+    font-weight: 600;
+}
+.navLinks{
+    justify-content: end;
+    align-items: center;
+    margin-top: 6px;
+}
+.userImg{
+display: flex;
+align-items: center;
+}
 .Dark{
     width: 115px;
 }
